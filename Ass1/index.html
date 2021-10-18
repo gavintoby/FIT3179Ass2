@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Multiple Visualisations | An Example</title>
+  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+  <!-- Import pure.css -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <!-- CSS file -->
+  <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+
+
+</head>
+<body>
+
+ <div class="page">
+
+   <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-1" style="background-color: rgb(226, 229, 247); border-style: solid;">
+          <br>
+        <h1 style = "font-size: 40px; text-align: center;" >World Vaccine Status while COVID Pandemic</h1>
+      </div>
+      <hr class = "line">
+      <div class="pure-u-1-1" style="background-color: rgb(226, 229, 247); ">
+        <p style = "text-align:center">In the midst of this pandemic, getting vaccinated has not been an uncommon method for many countries
+          all over the world to handle this COVID problem. However, not all countries has high vaccination
+          rate and even some countries has not administered a vaccination program. This visualisation will
+          show illustration of how country status could affect COVID vaccine distribution program in each different country.
+        </p>
+        </div>
+    </div>
+  <!-- end pure grid group -->
+
+    <!-- <div class="pure-g">
+        
+        <div class="pure-u-1-1" style="background-color: rgb(226, 229, 247);">
+              <p style = "text-align:center">In the midst of this pandemic, getting vaccinated has not been an uncommon method for many countries
+                all over the world to handle this COVID problem. However, not all countries has high vaccination
+                rate and even some countries has not administered a vaccination program. This visualisation will
+                show illustration of how country status could affect COVID vaccine distribution program in each</p>
+          </div>
+      
+    </div> -->
+
+    <!-- pure grid group -->
+    <div class="pure-g" style="background-color: rgb(222, 236, 227); border-style: outset; ">
+        <div class="pure-u-1-3">
+          <div class="description description-right">
+              <br>
+            <h2>GDP</h2>
+            <p style = "text-align:justify">Gross domestic product (GDP) is the market value of all goods and 
+                services produced within a country’s borders in a specific time period. In simple terms, GDP is
+                most commonly used measure for the size of an economy of a country.</p>
+          </div>
+        </div>
+
+        <div class="pure-u-1-3">
+            <div class="description description-right">
+                <br>
+              <h2> Life Expectency</h2>
+              <p style = "text-align:justify"> Life Expectency refers to the number of years a person can expect to live. By definition, 
+                life expectancy is based on an estimate of the average age a person that lives in that certain 
+                country will be when they die.</p>
+            </div>
+          </div>
+
+          <div class="pure-u-1-3">
+            <div class="description description-right">
+                <br>
+              <h2>Population Growth</h2>
+              <p style = "text-align:justify"> Population growth is the increase in the number of people in a population. Population growth refers 
+                to change in the size of a population—which can be either positive or negative—over time, depending on 
+                the balance of births and deaths.</p>
+            </div>
+          </div>
+    </div>
+    <!-- end pure grid group -->
+    <br>
+    <!-- pure grid group -->
+    <div class="pure-g" style="background-color: rgb(220, 245, 242); border-style: solid;">
+        <div class="description description-right">
+            <div class="pure-u-1-1">
+                <h2 style = "text-align:center" >World Status</h2>
+                <p style = "text-align:center">These section contains map visualisation that will show the number of each aspects that might affect vaccination status,
+                  and charts that depicts the top 30 on each 'GDP', 'Life expectency' and 'Population growth'.</p>
+            </div>
+        </div>
+        
+      
+    </div>
+    <!-- end pure grid group -->
+    
+    <!-- pure grid group -->
+    <div class="pure-g">
+        
+        <div class="pure-u-1-1" style = "text-align:center">
+            <div id="map1"  class="vis-container"></div>
+          </div>
+      
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+          <div class="pure-u-1-3">
+            <div id="bar1"  class="vis-container"></div>
+          </div>
+          <div class="pure-u-1-3">
+            <div id="bar2"  class="vis-container"></div>
+          </div>
+          <div class="pure-u-1-3">
+            <div id="bar3"  class="vis-container"></div>
+          </div>
+      
+    </div>
+    <!-- end pure grid group -->
+
+
+    <div class="pure-g">
+        <div class="description description-right" >
+            <div class="pure-u-1-1" style="background-color: rgb(247, 230, 226); border-style: solid;">
+                <h2 style = "text-align:center">Vaccine Status</h2>
+                <p style = "text-align:center">We will now take a look on the vaccination program status aspects in each different countries. This section contains 
+                    map visualisation that will show the number of the total vaccination per 100 population around the world.
+                    </p>
+            </div>
+        </div>
+      
+    </div>
+    <!-- end pure grid group -->
+    <!-- pure grid group -->
+    <div class="pure-g">
+        
+        <div class="pure-u-1-1" style = "text-align:center">
+            <div id="map2"  class="vis-container"></div>
+          </div>
+      
+    </div>
+    <!-- end pure grid group -->
+
+    <div class="pure-g">
+        <div class="description description-right" >
+            <div class="pure-u-1-1" style="background-color: rgb(247, 240, 226); border-style: solid;">
+                <h2 style = "text-align:center">Highest vs Lowest </h2>
+                <p style = "text-align:center">This section contains visualisation such as charts that depicts the top 15 lowest & highest on the vaccine stages.
+                    This chart will be catogarised into three class. The first class is the number of people getting vaccinated only on the first dose.
+                    The second class
+                    </p>
+            </div>
+        </div>
+      
+    </div>
+
+    <div class="pure-g">
+        
+        <div class="pure-u-1-1" style = "text-align:center">
+            <div id="bar4"  class="vis-container"></div>
+          </div>
+    
+    </div>
+    <!-- end pure grid group -->
+
+    <div class="pure-g" >
+        <div class="pure-u-1-1" >
+          <div class="description description-right" style="background-color: rgb(247, 226, 226); border-style: outset;">
+              <br>
+            <p style = "text-align:center">By looking at all the bar charts above, we can see that some of the top countries that has a large 'GDP'
+                and 'Life Expectancy' value has a high vaccination status i.e. Bahrain, Belgium, Canada, Chile, Denmark, Iceland, Israel, Malta,
+                Portugal, Singapore and UAE. Country that has relatively higher 'GDP' and 'Life Expectancy' value more likely to have a higher vaccination
+                number in terms of the quantity of vaccinated people both only first dose and fully vaccinated.</p>
+                <br>
+            </div>
+        </div>
+    </div>
+
+    <!-- end pure grid group -->
+
+    <div class="pure-g">
+        
+        <div class="pure-u-1-1" style = "text-align:center">
+            <div id="bar5"  class="vis-container"></div>
+          </div>
+      
+    </div>
+    <!-- end pure grid group -->
+
+    <div class="pure-g">
+        <div class="pure-u-1-1" >
+          <div class="description description-right" style="background-color: rgb(247, 228, 241); border-style: outset;">
+            <br>
+            <p style = "text-align:center">We can also see that some of the top countries that has a significant Population Growth number has a lower vaccine administration i.e. Benin, Burkina Faso, Chad, Congo, Madagascar, Mali, Somalia, South Sudan, Malta,
+                and Tanzania. Country that has relatively higher 'Population Growth' value more likely to have a lower vaccination
+                number in terms of the quantity of vaccinated people both only first dose and fully vaccinated.
+                </p>
+                <br>
+          </div>
+        </div>
+    </div>
+  
+    <div class="pure-g">
+      <div class="pure-u-1-1 small-font">
+        <p>This visualisation is created by <a href="https://github.com/gavintoby" target="_blank">Gavin Toby Darmawangsa</a>.</p>
+      </div>
+    </div>
+  
+
+  </div> <!-- end page -->
+   
+<script type="text/javascript">
+  var specVis1 = "./mapStat.json";
+  var specVis2= "./gdpBar.json";
+  var specVis3= "./lifeBar.json";
+  var specVis4= "./popBar.json";
+  var specVis5= "./mapVac.json";
+  var specVis6= "./headVac.json";
+  var specVis7= "./tailVac.json";
+
+  vegaEmbed('#map1', specVis1, {"actions": false});
+  
+   vegaEmbed('#bar1', specVis2, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  vegaEmbed('#bar2', specVis3, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  vegaEmbed('#bar3', specVis4, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  vegaEmbed('#map2', specVis5, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  vegaEmbed('#bar4', specVis6, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+  
+  vegaEmbed('#bar5', specVis7, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+</script>
+</body>
+</html>

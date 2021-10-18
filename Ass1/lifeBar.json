@@ -1,0 +1,39 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 300,
+    "height": {"step": 16},
+    "title": "Life Expectancy",
+    "data": {"url": "https://raw.githubusercontent.com/gavintoby/Assignment2_3179/main/Life_Bar.csv"},
+    "encoding": {
+      "y": {
+        "field": "Country",
+        "type": "nominal",
+        "axis": null
+      }
+    },
+    "layer": [{
+      "mark": {"type": "bar", "color": "#eef7c6"},
+      "encoding": {
+        "x": {
+          "aggregate": "mean",
+          "field": "Life expectancy",
+          "title": "",
+          "scale" :{"domain":[78,85]}
+        }
+        
+      }
+    }, {
+      "mark": {"type": "text", "align": "left", "x": 5},
+      "encoding": {
+        "text": {"field": "Country"},
+        "detail": {"aggregate": "count"},
+        "tooltip": [
+              {"field": "Country", "type": "nominal"},
+              {"field": "Life expectancy", "type": "quantitative", "title": "Life Expectancy"}
+   ]
+      }
+    }]
+  }
+  
+  
+  

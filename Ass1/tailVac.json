@@ -1,0 +1,42 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+     "title": "Top 15 Lowest Vaccine Status",
+    "data": { "url": "https://raw.githubusercontent.com/gavintoby/Assignment2_3179/main/TailVac.csv"},
+    "width": {"step": 10},
+    "mark": "bar",
+    "encoding": {
+      "column": {
+        "field": "Country", "type": "nominal", "spacing": 30,
+        "header": {"orient": "bottom"},
+        "title": ""
+      },
+      "y": {
+        "aggregate": "sum", "field": "Value",
+        "title": "",
+        "axis": {"grid": false}
+      },
+      "x": {
+        "field": "Type",
+        "axis": null
+      },
+      "color": {
+        "field": "Type",
+        "scale": {
+           "domain":["First Dose Vac", "Fully Vac", "Total Vaccinations"],
+           "range": ["#675193", "#ca8861","#e7ba52"]
+        }
+      },
+      "tooltip": [
+        {"field": "Country", "type": "nominal", "title": "Country"},
+        {"field": "Value", "type": "quantitative", "title": "Vaccine Count"}
+    ]
+    },
+    "config": {
+      "view": {"stroke": "transparent"},
+      "axis": {"domainWidth": 1}
+    }
+  }
+  
+  
+  
+  

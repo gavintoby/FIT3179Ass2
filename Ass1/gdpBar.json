@@ -1,0 +1,37 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 300,
+    "height": {"step": 16},
+    "title": "GDP Per Capita",
+    "data": {"url": "https://raw.githubusercontent.com/gavintoby/Assignment2_3179/main/GDP_Bar_New.csv"},
+    "encoding": {
+      "y": {
+        "field": "Country",
+        "type": "nominal",
+        "axis": null
+      }
+    },
+    "layer": [{
+      "mark": {"type": "bar", "color": "#eef7c6"},
+      "encoding": {
+        "x": {
+          "aggregate": "mean",
+          "field": "GDP per capita",
+          "title": "",
+          "scale" :{"domain":[30000,120000]}
+        }
+        
+      }
+    }, {
+      "mark": {"type": "text", "align": "left", "x": 5},
+      "encoding": {
+        "text": {"field": "Country"},
+        "detail": {"aggregate": "count"},
+        "tooltip": [
+              {"field": "Country", "type": "nominal"},
+              {"field": "GDP per capita", "type": "quantitative", "title": "GDP"}
+   ]
+      }
+    }]
+  }
+  
